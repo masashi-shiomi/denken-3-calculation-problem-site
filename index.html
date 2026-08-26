@@ -1,1 +1,478 @@
-ss
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>電験三種公式マスター | 電験三種試験対策アプリ</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: white;
+    }
+
+    /* ヘッダー */
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .app-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .app-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .header-nav a {
+      text-decoration: none;
+      color: #666;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .header-nav a:hover {
+      color: #0066cc;
+    }
+
+    .download-btn {
+      background-color: white;
+      color: #0066cc;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid #ddd;
+    }
+
+    .download-btn:hover {
+      background-color: #f5f5f5;
+    }
+
+    /* ヒーローセクション */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      color: #1a1a1a;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background-color: white;
+      color: #0066cc;
+      border: 1px solid #ddd;
+    }
+
+    .btn-primary:hover {
+      background-color: #f5f5f5;
+    }
+
+    .btn-secondary {
+      border: 2px solid #0066cc;
+      color: #0066cc;
+      background-color: transparent;
+    }
+
+    .btn-secondary:hover {
+      background-color: #f0f0f0;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* 特徴セクション */
+    .features {
+      background-color: #f9f9f9;
+      padding: 4rem 2rem;
+    }
+
+    .features-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #1a1a1a;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      background-color: #0066cc;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    /* CTA セクション */
+    .cta {
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background-color: white;
+      color: #0066cc;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-white:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* フッター */
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 3rem 2rem 1rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+      justify-items: end;
+    }
+
+    .footer-section {
+      text-align: right;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .footer-section a {
+      color: #bbb;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 2rem;
+      text-align: right;
+      color: #bbb;
+      font-size: 0.9rem;
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+      }
+
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+
+      .header-nav {
+        display: none;
+      }
+
+      .header-content {
+        padding: 1rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .cta h2 {
+        font-size: 1.5rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .btn-white {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header>
+    <div class="header-content">
+      <div class="logo-section">
+        <div class="app-icon">
+          <img src="images/appstore-icon.png" alt="電験三種公式マスター アイコン">
+        </div>
+        <div class="app-title">電験三種公式マスター</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ヒーローセクション -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>電験三種試験対策の決定版</h1>
+      <p>電験三種（第三種電気主任技術者試験）に合格するための最適な学習アプリ。実践的な問題演習と詳しい解説で、効率的に知識を習得できます。</p>
+      <div class="hero-buttons">
+        <a href="https://apps.apple.com/app/id000000000" class="btn-primary" target="_blank">
+          <img src="images/apple-icon.png" alt="App Store" style="height: 18px; width: auto;">
+          App Storeで入手
+        </a>
+        <a href="#features" class="btn-secondary">詳しく見る</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="images/screenshot.png" alt="電験三種公式マスター スクリーンショット" style="max-width: 280px;">
+    </div>
+  </section>
+
+  <!-- 特徴セクション -->
+  <section class="features" id="features">
+    <div class="features-container">
+      <h2 class="section-title">主な特徴</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>充実した問題数</h3>
+          <p>過去問題から最新の試験傾向まで、豊富な問題を収録。繰り返し学習で知識を定着させます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3>詳しい解説</h3>
+          <p>各問題には詳細な解説と図解を用意。理解を深めながら、効率的に学習できます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>学習進捗管理</h3>
+          <p>自分の学習状況を可視化。得意な分野と苦手な分野を把握して、効率的な学習計画を立てられます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>模擬試験</h3>
+          <p>本番試験と同じ形式の模擬試験で、実力を測定。試験対策に最適です。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>オフライン対応</h3>
+          <p>インターネット接続がなくても学習が可能。通勤・通学時間を有効活用できます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3>定期的な更新</h3>
+          <p>最新の試験傾向に対応。常に最新の問題データで学習できます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA セクション -->
+  <section class="cta">
+    <div class="cta-container">
+      <h2>電験三種合格を目指そう</h2>
+      <p>今すぐアプリをダウンロードして、効率的な学習を始めましょう。</p>
+      <div class="cta-buttons">
+        <a href="https://apps.apple.com/app/id000000000" class="btn-white" target="_blank">
+          <img src="images/apple-icon.png" alt="App Store" style="height: 16px; width: auto;">
+          App Storeで入手
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <a href="#contact">お問い合わせ</a>
+      </div>
+      <div class="footer-section">
+        <a href="#">プライバシーポリシー</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 電験三種公式マスター. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
