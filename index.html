@@ -313,15 +313,18 @@
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: flex;
       gap: 2rem;
       margin-bottom: 2rem;
-      justify-items: end;
+      justify-content: flex-end;
     }
 
     .footer-section {
       text-align: right;
+    }
+
+    .footer-section:first-child {
+      order: 1;
     }
 
     .footer-section h3 {
@@ -347,6 +350,10 @@
       text-align: right;
       color: #bbb;
       font-size: 0.9rem;
+    }
+
+    .footer-bottom p {
+      text-align: center;
     }
 
     /* レスポンシブ */
